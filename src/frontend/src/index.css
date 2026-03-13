@@ -1,0 +1,123 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Bricolage Grotesque";
+  src: url("/assets/fonts/BricolageGrotesque.woff2") format("woff2");
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("/assets/fonts/Satoshi.woff2") format("woff2");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0.08 0.008 265;
+    --foreground: 0.96 0.008 265;
+    --card: 0.12 0.01 265;
+    --card-foreground: 0.96 0.008 265;
+    --popover: 0.12 0.01 265;
+    --popover-foreground: 0.96 0.008 265;
+    --primary: 0.88 0.22 128;
+    --primary-foreground: 0.08 0.008 265;
+    --secondary: 0.18 0.012 265;
+    --secondary-foreground: 0.96 0.008 265;
+    --muted: 0.16 0.01 265;
+    --muted-foreground: 0.55 0.02 265;
+    --accent: 0.88 0.22 128;
+    --accent-foreground: 0.08 0.008 265;
+    --destructive: 0.65 0.25 25;
+    --destructive-foreground: 0.98 0.005 25;
+    --border: 0.22 0.012 265;
+    --input: 0.18 0.012 265;
+    --ring: 0.88 0.22 128;
+    --radius: 0.75rem;
+    --chart-1: 0.88 0.22 128;
+    --chart-2: 0.7 0.18 200;
+    --chart-3: 0.75 0.2 50;
+    --chart-4: 0.65 0.22 290;
+    --chart-5: 0.6 0.2 15;
+    --sidebar: 0.1 0.01 265;
+    --sidebar-foreground: 0.96 0.008 265;
+    --sidebar-primary: 0.88 0.22 128;
+    --sidebar-primary-foreground: 0.08 0.008 265;
+    --sidebar-accent: 0.18 0.012 265;
+    --sidebar-accent-foreground: 0.96 0.008 265;
+    --sidebar-border: 0.22 0.012 265;
+    --sidebar-ring: 0.88 0.22 128;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .text-gradient-lime {
+    background: linear-gradient(
+      135deg,
+      oklch(0.88 0.22 128),
+      oklch(0.75 0.2 170)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glass-card {
+    background: oklch(0.14 0.012 265 / 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid oklch(0.28 0.015 265 / 0.5);
+  }
+
+  .lime-glow {
+    box-shadow: 0 0 20px oklch(0.88 0.22 128 / 0.3), 0 0 60px
+      oklch(0.88 0.22 128 / 0.1);
+  }
+
+  .lime-glow-text {
+    text-shadow: 0 0 30px oklch(0.88 0.22 128 / 0.6);
+  }
+
+  .rank-overlay {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: oklch(0.1 0.008 265);
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: oklch(0.3 0.015 265);
+    border-radius: 2px;
+  }
+
+  .scrollbar-thin::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.88 0.22 128 / 0.6);
+  }
+}
