@@ -112,16 +112,16 @@ export default function LeagueTable() {
               "url('/assets/generated/padel-hero.dim_1600x600.jpg')",
           }}
         >
-          <div className="absolute inset-0 bg-background/70" />
+          <div className="absolute inset-0 bg-black/40" />
           <div className="relative z-10 flex flex-col items-center justify-center h-full gap-4 text-center px-4">
             <Badge className="bg-primary/20 text-primary border-primary/40 text-xs tracking-widest uppercase font-semibold">
               Season 2026
             </Badge>
-            <h1 className="font-display text-5xl md:text-7xl font-extrabold tracking-tighter text-foreground">
+            <h1 className="font-display text-5xl md:text-7xl font-extrabold tracking-tighter text-white">
               SMASH{" "}
               <span className="text-gradient-lime lime-glow-text">LEAGUE</span>
             </h1>
-            <p className="text-muted-foreground text-lg max-w-md">
+            <p className="text-white/80 text-lg max-w-md">
               The most competitive padel league in the city. Battle for glory.
             </p>
           </div>
@@ -136,122 +136,116 @@ export default function LeagueTable() {
             Standings
           </h2>
         </div>
-        {isAdmin && (
-          <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
-            <DialogTrigger asChild>
-              <Button
-                size="sm"
-                className="bg-primary text-primary-foreground gap-2 lime-glow"
-                data-ocid="league.open_modal_button"
-              >
-                <Plus className="w-4 h-4" /> Add Player
-              </Button>
-            </DialogTrigger>
-            <DialogContent
-              className="bg-card border-border"
-              data-ocid="league.dialog"
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogTrigger asChild>
+            <Button
+              size="sm"
+              className="bg-primary text-primary-foreground gap-2 lime-glow"
+              data-ocid="league.open_modal_button"
             >
-              <DialogHeader>
-                <DialogTitle className="font-display">
-                  Add League Entry
-                </DialogTitle>
-              </DialogHeader>
-              <div className="grid gap-4 py-4">
+              <Plus className="w-4 h-4" /> Add Player
+            </Button>
+          </DialogTrigger>
+          <DialogContent
+            className="bg-card border-border"
+            data-ocid="league.dialog"
+          >
+            <DialogHeader>
+              <DialogTitle className="font-display">
+                Add League Entry
+              </DialogTitle>
+            </DialogHeader>
+            <div className="grid gap-4 py-4">
+              <div>
+                <Label>Player Name</Label>
+                <Input
+                  data-ocid="league.input"
+                  value={form.playerName}
+                  onChange={(e) =>
+                    setForm({ ...form, playerName: e.target.value })
+                  }
+                  placeholder="Player name"
+                  className="mt-1 bg-input"
+                />
+              </div>
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label>Player Name</Label>
+                  <Label>Rank</Label>
                   <Input
-                    data-ocid="league.input"
-                    value={form.playerName}
-                    onChange={(e) =>
-                      setForm({ ...form, playerName: e.target.value })
-                    }
-                    placeholder="Player name"
+                    type="number"
+                    value={form.rank}
+                    onChange={(e) => setForm({ ...form, rank: e.target.value })}
+                    placeholder="1"
                     className="mt-1 bg-input"
                   />
                 </div>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <Label>Rank</Label>
-                    <Input
-                      type="number"
-                      value={form.rank}
-                      onChange={(e) =>
-                        setForm({ ...form, rank: e.target.value })
-                      }
-                      placeholder="1"
-                      className="mt-1 bg-input"
-                    />
-                  </div>
-                  <div>
-                    <Label>Points</Label>
-                    <Input
-                      type="number"
-                      value={form.points}
-                      onChange={(e) =>
-                        setForm({ ...form, points: e.target.value })
-                      }
-                      placeholder="0"
-                      className="mt-1 bg-input"
-                    />
-                  </div>
-                  <div>
-                    <Label>Wins</Label>
-                    <Input
-                      type="number"
-                      value={form.wins}
-                      onChange={(e) =>
-                        setForm({ ...form, wins: e.target.value })
-                      }
-                      placeholder="0"
-                      className="mt-1 bg-input"
-                    />
-                  </div>
-                  <div>
-                    <Label>Draws</Label>
-                    <Input
-                      type="number"
-                      value={form.draws}
-                      onChange={(e) =>
-                        setForm({ ...form, draws: e.target.value })
-                      }
-                      placeholder="0"
-                      className="mt-1 bg-input"
-                    />
-                  </div>
-                  <div>
-                    <Label>Losses</Label>
-                    <Input
-                      type="number"
-                      value={form.losses}
-                      onChange={(e) =>
-                        setForm({ ...form, losses: e.target.value })
-                      }
-                      placeholder="0"
-                      className="mt-1 bg-input"
-                    />
-                  </div>
+                <div>
+                  <Label>Points</Label>
+                  <Input
+                    type="number"
+                    value={form.points}
+                    onChange={(e) =>
+                      setForm({ ...form, points: e.target.value })
+                    }
+                    placeholder="0"
+                    className="mt-1 bg-input"
+                  />
+                </div>
+                <div>
+                  <Label>Wins</Label>
+                  <Input
+                    type="number"
+                    value={form.wins}
+                    onChange={(e) => setForm({ ...form, wins: e.target.value })}
+                    placeholder="0"
+                    className="mt-1 bg-input"
+                  />
+                </div>
+                <div>
+                  <Label>Draws</Label>
+                  <Input
+                    type="number"
+                    value={form.draws}
+                    onChange={(e) =>
+                      setForm({ ...form, draws: e.target.value })
+                    }
+                    placeholder="0"
+                    className="mt-1 bg-input"
+                  />
+                </div>
+                <div>
+                  <Label>Losses</Label>
+                  <Input
+                    type="number"
+                    value={form.losses}
+                    onChange={(e) =>
+                      setForm({ ...form, losses: e.target.value })
+                    }
+                    placeholder="0"
+                    className="mt-1 bg-input"
+                  />
                 </div>
               </div>
-              <div className="flex gap-2 justify-end">
-                <Button
-                  variant="outline"
-                  data-ocid="league.cancel_button"
-                  onClick={() => setDialogOpen(false)}
-                >
-                  Cancel
-                </Button>
-                <Button
-                  data-ocid="league.submit_button"
-                  onClick={handleCreate}
-                  disabled={!form.playerName || createEntry.isPending}
-                  className="bg-primary text-primary-foreground"
-                >
-                  {createEntry.isPending ? "Adding..." : "Add"}
-                </Button>
-              </div>
-            </DialogContent>
-          </Dialog>
-        )}
+            </div>
+            <div className="flex gap-2 justify-end">
+              <Button
+                variant="outline"
+                data-ocid="league.cancel_button"
+                onClick={() => setDialogOpen(false)}
+              >
+                Cancel
+              </Button>
+              <Button
+                data-ocid="league.submit_button"
+                onClick={handleCreate}
+                disabled={!form.playerName || createEntry.isPending}
+                className="bg-primary text-primary-foreground"
+              >
+                {createEntry.isPending ? "Adding..." : "Add"}
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
       </div>
 
       {/* League Table */}

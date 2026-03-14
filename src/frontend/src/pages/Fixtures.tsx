@@ -120,7 +120,7 @@ export default function Fixtures() {
             </h2>
           </div>
           <p className="text-muted-foreground text-sm">
-            Upcoming & scheduled matches
+            Upcoming and scheduled matches
           </p>
         </div>
         {isAdmin && (
@@ -168,7 +168,7 @@ export default function Fixtures() {
                   </div>
                 </div>
                 <div>
-                  <Label>Date & Time</Label>
+                  <Label>Date and Time</Label>
                   <Input
                     type="datetime-local"
                     value={form.dateTime}
